@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Jesse Hill",
   "scripts": {
-    "start": "open -a 'Google Chrome' index.html"
+    "start": "node server/server.js"
   },
   "dependencies": {
     "body-parser": "^1.17.1",

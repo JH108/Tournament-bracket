@@ -1,4 +1,10 @@
 {
+  "name": "Tournament Bracket",
+  "version": "1.0.0",
+  "author": "Jesse Hill",
+  "scripts": {
+    "start": "open -a 'Google Chrome' index.html"
+  },
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",

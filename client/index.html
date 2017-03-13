@@ -9,12 +9,12 @@
 <body ng-app="tournament">
   <h1>Under Development</h1>
   <div ng-controller="enterTeams">
-    <form ng-submit="addTeam()">
+    <form ng-submit="addTeam(newTeam)">
       <input type="text" ng-model="newTeam" placeholder="Enter your team here">
       <button type="submit">Submit</button>
     </form>
     <ul>
-      <li ng-repeat="team in teams"> {{ team }} </li>
+      <li ng-repeat="team in teams track by $index"> {{ team }} </li>
     </ul>
   </div>
 </body>

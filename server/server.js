@@ -21,16 +21,16 @@ var teams = [
 app.use(bodyParser.json());
 app.use(express.static('client'));
 
-app.get('/', function(req, res) {
-  console.log(teams)
-  res.send(200, teams);
-  res.end(teams);
+app.get('/api', function(req, res) {
+  console.log('get request was sent')
+  res.status(200).send(teams);
+  res.end();
 });
 
-app.post('/', function(req, res) {
+app.post('/api', function(req, res) {
   var team = req.body.data;
   teams.push(team);
-  console.log(req.body.data);
+  console.log('post request was sent', req.body.data);
   res.send(201);
   res.end();
 })

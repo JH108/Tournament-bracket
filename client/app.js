@@ -1,5 +1,5 @@
-angular.module('tournament', [])
-  .controller('enterTeams', function($scope, Teams) {
+angular.module('tournament', ['ngRoute'])
+  .controller('EnterTeams', function($scope, Teams) {
 
     Teams.getAllTeams().then(function(teams) {
       // console.log(teams)
@@ -17,7 +17,7 @@ angular.module('tournament', [])
     var getAllTeams = function() {
       return $http({
         method: 'GET',
-        url: '/'
+        url: '/api'
       }).then(function(res) {
         console.log('console log is here', res);
         return res.data;
@@ -27,7 +27,7 @@ angular.module('tournament', [])
     var addNewTeam = function(team) {
       return $http({
         method: 'POST',
-        url: '/',
+        url: '/api',
         data: team
       });
     }
@@ -37,4 +37,11 @@ angular.module('tournament', [])
       addNewTeam: addNewTeam
     };
 
+  })
+  .config(function($routeProvider, $httpProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'index.html',
+        controller: 'EnterTeams'
+      })
   })

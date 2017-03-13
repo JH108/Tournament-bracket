@@ -1,0 +1,6 @@
+# Dependency Directories
+node_modules/
+bower_components/
+
+# Extra Stuff
+.DS_Store

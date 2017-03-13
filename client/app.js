@@ -3,6 +3,6 @@ angular.module('tournament', [])
     $scope.teams = [];
 
     $scope.addTeam = function(team) {
-      $scope.teams.push(team);
+      $scope.teams.push({name: team});
     }
   })

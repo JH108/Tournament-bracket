@@ -1,0 +1,10 @@
+{
+  "name": "Tournament Bracket",
+  "version": "1.0.0",
+  "authors": [
+    "Jesse Hill"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3"
+  }
+}

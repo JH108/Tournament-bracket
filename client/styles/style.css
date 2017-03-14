@@ -3,3 +3,19 @@ h1 {
   font-style: "Times New Roman", Times, serif;
   color: blue;
 }
+
+h2 {
+ font-size: 24px;
+ font-style: "Times New Roman", Times, serif;
+ color: green;
+}
+
+.teamlist {
+  margin-bottom: 5px;
+  width: 200px;
+}
+
+.score {
+  width: 50px;
+  float: right;
+}

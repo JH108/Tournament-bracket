@@ -36,6 +36,14 @@ angular.module('tournament', ['ngRoute'])
       });
     };
 
+    var addScore = function(score) {
+      return $http({
+        method: 'POST',
+        url: '/api',
+        data: score
+      });
+    };
+
     var addNewTeam = function(team) {
       return $http({
         method: 'POST',
@@ -52,26 +60,27 @@ angular.module('tournament', ['ngRoute'])
     return {
       getAllTeams: getAllTeams,
       addNewTeam: addNewTeam,
+      addScore: addScore,
       removeTeam: removeTeam
     };
 
   })
-  .directive('bracketVisualization', function(Teams) {
+  // .directive('bracketVisualization', function(Teams) {
 
-    var margin = 20,
-      width = 960,
-      height = 500 - margin;
+  //   var margin = 20,
+  //     width = 960,
+  //     height = 500 - margin;
 
-    return {
-      restrict: E,
-      scope: {
-        val: '=',
-        grouped: '='
-      }
+  //   return {
+  //     restrict: E,
+  //     scope: {
+  //       val: '=',
+  //       grouped: '='
+  //     }
 
-    };
+  //   };
 
-  })
+  // })
   .config(function($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {

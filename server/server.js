@@ -65,7 +65,14 @@ app.post('/api', function(req, res) {
     }
     res.end();
   });
-})
+});
+
+app.delete('/api', function(req, res) {
+  console.log('server delete req.body: ', req.body);
+  console.log('server delete req.params: ', req.params);
+  // Team.find({})
+  res.end();
+});
 
 app.listen(port);
 console.log('Server is listening at port: ' + port);

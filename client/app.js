@@ -8,6 +8,8 @@ angular.module('tournament', ['ngRoute'])
     });
 
     $scope.addTeam = function(team) {
+      Teams.removeTeam(team).then(function() {
+
       Teams.addNewTeam({name: team})
         .then(function() {
           Teams.getAllTeams()
@@ -16,8 +18,9 @@ angular.module('tournament', ['ngRoute'])
               $scope.teams = teams;
             });
         });
-      $scope.newTeam = '';
       //$scope.teams.push({name: team});
+      })
+      $scope.newTeam = '';
     }
 
   })
@@ -39,11 +42,17 @@ angular.module('tournament', ['ngRoute'])
         url: '/api',
         data: team
       });
-    }
+    };
+
+    var removeTeam = function(team) {
+      console.log('app.js team: ', team)
+      return $http.delete('/api', team);
+    };
 
     return {
       getAllTeams: getAllTeams,
-      addNewTeam: addNewTeam
+      addNewTeam: addNewTeam,
+      removeTeam: removeTeam
     };
 
   })

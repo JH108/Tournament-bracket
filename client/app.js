@@ -56,6 +56,22 @@ angular.module('tournament', ['ngRoute'])
     };
 
   })
+  .directive('bracketVisualization', function(Teams) {
+
+    var margin = 20,
+      width = 960,
+      height = 500 - margin;
+
+    return {
+      restrict: E,
+      scope: {
+        val: '=',
+        grouped: '='
+      }
+
+    };
+
+  })
   .config(function($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {

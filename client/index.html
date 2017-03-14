@@ -10,15 +10,19 @@
   <script src="app.js"></script>
 </head>
 <body ng-app="tournament">
-  <h1>Under Development</h1>
+  <h1>Bracket Generator</h1>
   <div ng-controller="EnterTeams">
     <form ng-submit="addTeam(newTeam)">
       <input type="text" ng-model="newTeam" placeholder="Enter your team here">
       <button type="submit">Submit</button>
     </form>
+
     <ul>
-      <li ng-repeat="team in teams track by $index"> {{ team.name }} </li>
+      <li ng-repeat="team in teams"> {{team.name}} </li>
     </ul>
+    <!--
+    <bracket-visualization val="teams"></bracket-visualization>
+    -->
   </div>
 </body>
 </html>

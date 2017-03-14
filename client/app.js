@@ -12,6 +12,15 @@ angular.module('tournament', ['ngRoute'])
       Teams.addScore({name: teamName, score: score});
     };
 
+    $scope.removeTeam = function(teamName) {
+      console.log('controller: ', teamName);
+      Teams.removeTeam(teamName).then(function() {
+        Teams.getAllTeams().then(function(teams) {
+          $scope.teams = teams;
+        });
+      });
+    };
+
     $scope.addTeam = function(team) {
 
       Teams.addNewTeam({name: team})
@@ -56,9 +65,12 @@ angular.module('tournament', ['ngRoute'])
       });
     };
 
-    var removeTeam = function(team) {
-      console.log('app.js team: ', team)
-      return $http.delete('/api', team);
+    var removeTeam = function(teamName) {
+      console.log('factory: ', teamName);
+      return $http({
+        method: 'DELETE',
+        url: '/api/' + teamName
+      });
     };
 
     return {

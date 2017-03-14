@@ -11,22 +11,29 @@
 </head>
 <body ng-app="tournament">
   <h1>Bracket Generator</h1>
-  <div ng-controller="EnterTeams">
+  <div ng-controller="EnterTeams" class="container">
 
     <form ng-submit="addTeam(newTeam)">
       <input type="text" ng-model="newTeam" placeholder="Enter your team here">
       <button type="submit">Submit</button>
     </form>
 
-    <div>
+    <div class="list">
       <h2>Team List</h2>
       <div class="teamlist" ng-repeat="team in teams">
+        <h4 ng-click="removeTeam(team.name)" class="remove">X</h4>
         {{team.name}}
         <form ng-submit="addScore(newScore, team.name)">
           <input class="score" type="number" ng-model="newScore" placeholder="Score">
         </form>
        </div>
 
+    </div>
+
+    <div class="bracket">
+      <h2>Bracket</h2>
+      <div >
+      </div>
     </div>
 
     <!--

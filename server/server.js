@@ -75,15 +75,25 @@ app.post('/api/score', function(req, res) {
   Team.update({name: teamName}, {score: teamScore}, function(err) {
     if (err) {
       console.error(err)
-    } else {console.log('success!')}
+    } else {
+      res.sendStatus(201);
+      res.end();
+    }
   });
+
 });
 
-app.delete('/api', function(req, res) {
-  console.log('server delete req.body: ', req.body);
-  console.log('server delete req.params: ', req.params);
-  // Team.find({})
-  res.end();
+app.delete('/api/:name', function(req, res) {
+  var teamName = req.params.name;
+  //console.log('server delete req.params: ', req.params);
+  Team.remove({name: teamName}, function(err) {
+    if (err) {
+      console.error(err);
+    } else {
+      res.sendStatus(201);
+      res.end();
+    }
+  });
 });
 
 app.listen(port);

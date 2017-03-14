@@ -1,13 +1,22 @@
 angular.module('tournament', ['ngRoute'])
   .controller('EnterTeams', function($scope, Teams) {
 
+
     Teams.getAllTeams().then(function(teams) {
-      // console.log(teams)
+      console.log('teams were got')
       $scope.teams = teams;
     });
 
     $scope.addTeam = function(team) {
-      Teams.addNewTeam({name: team});
+      Teams.addNewTeam({name: team})
+        .then(function() {
+          Teams.getAllTeams()
+            .then(function(teams) {
+              console.log('teams were got')
+              $scope.teams = teams;
+            });
+        });
+      $scope.newTeam = '';
       //$scope.teams.push({name: team});
     }
 

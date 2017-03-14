@@ -28,10 +28,10 @@ app.get('/api', function(req, res) {
 });
 
 app.post('/api', function(req, res) {
-  var team = req.body.data;
+  var team = req.body;
   teams.push(team);
-  console.log('post request was sent', req.body.data);
-  res.send(201);
+  console.log('post request was sent', req.body);
+  res.sendStatus(201);
   res.end();
 })
 

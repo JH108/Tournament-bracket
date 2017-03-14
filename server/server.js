@@ -6,10 +6,11 @@ var mongoose = require('mongoose');
 var app = express();
 var port = process.env.PORT || 3000;
 var ip = process.env.IP || 'localhost';
+mongoose.Promise
 
 
 /************* Database *************/
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/tournamentdb');
+mongoose.connect(process.env.PORT ? 'mongodb://heroku_chs6l24d:nokqrco94k1bsvmnbrruh6o6c0@ds131480.mlab.com:31480/heroku_chs6l24d' : 'mongodb://localhost/tournamentdb');
 
 var db = mongoose.connection;
 

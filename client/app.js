@@ -3,7 +3,7 @@ angular.module('tournament', ['ngRoute'])
 
 
     Teams.getAllTeams().then(function(teams) {
-      console.log('teams were got')
+      //console.log('teams were got')
       $scope.teams = teams;
     });
 
@@ -12,7 +12,7 @@ angular.module('tournament', ['ngRoute'])
         .then(function() {
           Teams.getAllTeams()
             .then(function(teams) {
-              console.log('teams were got')
+              //console.log('teams were got')
               $scope.teams = teams;
             });
         });
@@ -28,7 +28,7 @@ angular.module('tournament', ['ngRoute'])
         method: 'GET',
         url: '/api'
       }).then(function(res) {
-        console.log('console log is here', res);
+        //console.log('console log is here', res);
         return res.data;
       });
     };

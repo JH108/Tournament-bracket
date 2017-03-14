@@ -22,7 +22,9 @@
       <h2>Team List</h2>
       <div class="teamlist" ng-repeat="team in teams">
         {{team.name}}
-        <input class="score" type="number" ng-model="newScore" placeholder="Score">
+        <form ng-submit="addScore(newScore, team.name)">
+          <input class="score" type="number" ng-model="newScore" placeholder="Score">
+        </form>
        </div>
 
     </div>

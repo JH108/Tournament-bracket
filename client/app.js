@@ -7,8 +7,12 @@ angular.module('tournament', ['ngRoute'])
       $scope.teams = teams;
     });
 
+    $scope.addScore = function(score, teamName) {
+      console.log('add score', score + ' ' + teamName);
+      Teams.addScore({name: teamName, score: score});
+    };
+
     $scope.addTeam = function(team) {
-      Teams.removeTeam(team).then(function() {
 
       Teams.addNewTeam({name: team})
         .then(function() {
@@ -19,7 +23,7 @@ angular.module('tournament', ['ngRoute'])
             });
         });
       //$scope.teams.push({name: team});
-      })
+
       $scope.newTeam = '';
     }
 
@@ -36,11 +40,11 @@ angular.module('tournament', ['ngRoute'])
       });
     };
 
-    var addScore = function(score) {
+    var addScore = function(teamData) {
       return $http({
         method: 'POST',
-        url: '/api',
-        data: score
+        url: '/api/score',
+        data: teamData
       });
     };
 

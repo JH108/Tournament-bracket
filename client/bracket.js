@@ -1,13 +1,13 @@
-var width = 720;
-var height = 540;
+// var width = 720;
+// var height = 540;
 
-var tree = d3.layout.tree()
-    .separation(function(a, b) {a.parent === b.parent ? 1 : 2}) // put logic for who won
-    .size([height, width]);
+// var tree = d3.layout.tree()
+//     .separation(function(a, b) {a.parent === b.parent ? 1 : 2}) // put logic for who won
+//     .size([height, width]);
 
-var svg = d3.select('body').append('svg')
-    .attr('width', width)
-    .attr('height', height);
+// var svg = d3.select('body').append('svg')
+//     .attr('width', width)
+//     .attr('height', height);
 
 // Angular directive
   // create a directive

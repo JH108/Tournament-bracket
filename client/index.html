@@ -31,8 +31,9 @@
     </div>
 
     <div class="bracket">
-      <h2>Bracket</h2>
-      <div >
+      <h2>Bracket</h2> <button ng-click="pairTeams(teams)">Generate</button>
+      <div ng-repeat="pair in pairs">
+        {{ pair }}
       </div>
     </div>
 

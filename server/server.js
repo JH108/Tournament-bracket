@@ -71,7 +71,7 @@ app.post('/api', function(req, res) {
 app.post('/api/score', function(req, res) {
   var teamName = req.body.name;
   var teamScore = req.body.score;
-  console.log(req.body);
+  //console.log(req.body);
   Team.update({name: teamName}, {score: teamScore}, function(err) {
     if (err) {
       console.error(err)

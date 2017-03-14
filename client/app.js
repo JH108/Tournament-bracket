@@ -7,13 +7,24 @@ angular.module('tournament', ['ngRoute'])
       $scope.teams = teams;
     });
 
+    $scope.pairTeams = function(teams) {
+      $scope.pairs = [];
+      for(var i = 0; i < teams.length; i += 2) {
+        if (teams[i + 1] !== undefined) {
+          $scope.pairs.push([teams[i], teams[i + 1]]);
+        } else {
+          $scope.pairs.push([teams[teams.length - 1]]);
+        }
+      }
+    };
+
     $scope.addScore = function(score, teamName) {
-      console.log('add score', score + ' ' + teamName);
+      //console.log('add score', score + ' ' + teamName);
       Teams.addScore({name: teamName, score: score});
     };
 
     $scope.removeTeam = function(teamName) {
-      console.log('controller: ', teamName);
+      //console.log('controller: ', teamName);
       Teams.removeTeam(teamName).then(function() {
         Teams.getAllTeams().then(function(teams) {
           $scope.teams = teams;
@@ -66,7 +77,7 @@ angular.module('tournament', ['ngRoute'])
     };
 
     var removeTeam = function(teamName) {
-      console.log('factory: ', teamName);
+      //console.log('factory: ', teamName);
       return $http({
         method: 'DELETE',
         url: '/api/' + teamName

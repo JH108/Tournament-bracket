@@ -35,5 +35,5 @@ app.post('/api', function(req, res) {
   res.end();
 })
 
-app.listen(port, ip);
+app.listen(port);
 console.log('Server is listening at port: ' + port);

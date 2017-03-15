@@ -19,7 +19,7 @@ angular.module('tournament', ['ngRoute'])
     };
 
     $scope.addScore = function(score, teamName) {
-      //console.log('add score', score + ' ' + teamName);
+      console.log('add score', score + ' ' + teamName);
       Teams.addScore({name: teamName, score: score});
     };
 

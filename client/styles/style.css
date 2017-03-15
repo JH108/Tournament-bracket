@@ -16,20 +16,44 @@ h2 {
  color: green;
 }
 
-.remove {
-  display: inline;
-  font-size: 10;
-  color: grey;
-  margin-right: 4px;
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 250px;
 }
 
 .teamlist {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
 
-  margin-bottom: 5px;
-  width: 200px;
+.remove {
+  font-size: 10;
+  color: grey;
+  margin-top: 0;
 }
 
 .score {
   width: 50px;
-  float: right;
+}
+
+.bracket {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+}
+.generate-button {
+  width: 100px;
+}
+.top-game {
+  width: 200px;
+  border-bottom: 1px solid grey;
+}
+
+.bottom-game {
+  width: 200px;
+  border-top: 1px solid grey;
 }

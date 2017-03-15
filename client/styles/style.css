@@ -46,14 +46,19 @@ h2 {
   height: 100px;
 }
 .generate-button {
+  text-align: center;
   width: 100px;
 }
 .top-game {
+  flex-direction: row;
+  justify-content: space-between;
   width: 200px;
   border-bottom: 1px solid grey;
 }
 
 .bottom-game {
+  flex-direction: row;
+  justify-content: space-between;
   width: 200px;
   border-top: 1px solid grey;
 }

@@ -35,30 +35,36 @@ h2 {
   margin-top: 0;
 }
 
-.score {
-  width: 50px;
-}
 
 .bracket {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 250px;
   height: 100px;
+}
+.score-top {
+  width: 50px;
+  margin-bottom: 5px;
+}
+.score-bottom {
+  width: 50px;
+  margin-top: 5px;
 }
 .generate-button {
   text-align: center;
   width: 100px;
 }
 .top-game {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 200px;
   border-bottom: 1px solid grey;
 }
 
 .bottom-game {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 200px;
   border-top: 1px solid grey;
 }

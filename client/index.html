@@ -23,9 +23,9 @@
       <div class="teamlist" ng-repeat="team in teams">
         <h4 ng-click="removeTeam(team.name)" class="remove">X</h4>
         <span>{{team.name}}</span>
-        <form ng-submit="addScore(newScore, team.name)">
+        <!-- <form ng-submit="addScore(newScore, team.name)">
           <input class="score" type="number" ng-model="newScore" placeholder="Score">
-        </form>
+        </form> -->
        </div>
 
     </div>
@@ -38,13 +38,17 @@
       <div ng-repeat="pair in pairs">
         <br>
         <div class="top-game">
-          <span>{{ pair[0].name }}</span>
-          <span>{{ pair[0].score }}</span>
+          {{ pair[0].name }}
+          <form ng-submit="addScore(topScore, pair[0].name)">
+            <input class="score-top" type="number" ng-model="topScore" placeholder="Score">
+          </form>
         </div>
         <br>
         <div class="bottom-game">
-          <span>{{ pair[1].name }}</span>
-          <span>{{ pair[1].score }}</span>
+          {{ pair[1].name }}
+          <form ng-submit="addScore(bottomScore, pair[1].name)">
+            <input class="score-bottom" type="number" ng-model="bottomScore" placeholder="Score">
+          </form>
         </div>
 
       </div>

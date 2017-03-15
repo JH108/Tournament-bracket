@@ -21,8 +21,8 @@
     <div class="list">
       <h2>Team List</h2>
       <div class="teamlist" ng-repeat="team in teams">
-        <h4 ng-click="removeTeam(team.name)" class="remove">X</h4>
         <span>{{team.name}}</span>
+        <h4 ng-click="removeTeam(team.name)" class="remove">X</h4>
         <!-- <form ng-submit="addScore(newScore, team.name)">
           <input class="score" type="number" ng-model="newScore" placeholder="Score">
         </form> -->
@@ -34,6 +34,7 @@
 
       <h2>Bracket</h2>
       <button class="generate-button" ng-click="pairTeams(teams)">Generate</button>
+      <br>
       <button class="next-round-button" ng-click="nextRound()">Next Round</button>
 
       <div ng-repeat="pair in pairs">

@@ -20,7 +20,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 250px;
+  width: 150px;
 }
 
 .teamlist {
@@ -50,6 +50,10 @@ h2 {
 .score-bottom {
   width: 50px;
   margin-top: 5px;
+}
+.next-round-button {
+  text-align: center;
+  width: 100px;
 }
 .generate-button {
   text-align: center;

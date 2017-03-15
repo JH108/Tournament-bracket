@@ -1,9 +1,7 @@
 angular.module('tournament', ['ngRoute'])
   .controller('EnterTeams', function($scope, Teams) {
 
-
     Teams.getAllTeams().then(function(teams) {
-      //console.log('teams were got')
       $scope.teams = teams;
     });
 
@@ -47,7 +45,6 @@ angular.module('tournament', ['ngRoute'])
     };
 
     $scope.removeTeam = function(teamName) {
-      //console.log('controller: ', teamName);
       Teams.removeTeam(teamName).then(function() {
         Teams.getAllTeams().then(function(teams) {
           $scope.teams = teams;
@@ -61,11 +58,9 @@ angular.module('tournament', ['ngRoute'])
         .then(function() {
           Teams.getAllTeams()
             .then(function(teams) {
-              //console.log('teams were got')
               $scope.teams = teams;
             });
         });
-      //$scope.teams.push({name: team});
 
       $scope.newTeam = '';
     }
@@ -78,7 +73,6 @@ angular.module('tournament', ['ngRoute'])
         method: 'GET',
         url: '/api'
       }).then(function(res) {
-        //console.log('console log is here', res);
         return res.data;
       });
     };
@@ -100,7 +94,6 @@ angular.module('tournament', ['ngRoute'])
     };
 
     var removeTeam = function(teamName) {
-      //console.log('factory: ', teamName);
       return $http({
         method: 'DELETE',
         url: '/api/' + teamName
@@ -115,26 +108,10 @@ angular.module('tournament', ['ngRoute'])
     };
 
   })
-  // .directive('bracketVisualization', function(Teams) {
-
-  //   var margin = 20,
-  //     width = 960,
-  //     height = 500 - margin;
-
-  //   return {
-  //     restrict: E,
-  //     scope: {
-  //       val: '=',
-  //       grouped: '='
-  //     }
-
-  //   };
-
-  // })
   .config(function($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'index.html',
         controller: 'EnterTeams'
-      })
-  })
+      });
+  });

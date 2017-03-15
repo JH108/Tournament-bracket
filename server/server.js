@@ -22,29 +22,15 @@ var teamSchema = mongoose.Schema({
 
 var Team = mongoose.model('Team', teamSchema);
 
-// var teams = [
-//   {
-//     name: 'CHSM'
-//   },
-//   {
-//     name: 'HCYA'
-//   },
-//   {
-//     name: 'Golden State'
-//   }
-// ];
-
 app.use(bodyParser.json());
 app.use(express.static('client'));
 
 app.get('/api', function(req, res) {
-  //console.log('get request was sent')
   Team.find(function(err, teams) {
     if (err) {
       res.sendStatus(500);
       console.error(err);
     } else {
-      //console.log(teams);
       res.status(200).send(teams);
     }
     res.end();
@@ -62,7 +48,6 @@ app.post('/api', function(req, res) {
       console.error(err);
     } else {
       res.sendStatus(201);
-      //console.log('post request was sent', req.body);
     }
     res.end();
   });
@@ -71,7 +56,6 @@ app.post('/api', function(req, res) {
 app.post('/api/score', function(req, res) {
   var teamName = req.body.name;
   var teamScore = req.body.score;
-  //console.log(req.body);
   Team.update({name: teamName}, {score: teamScore}, function(err) {
     if (err) {
       console.error(err)
@@ -85,7 +69,6 @@ app.post('/api/score', function(req, res) {
 
 app.delete('/api/:name', function(req, res) {
   var teamName = req.params.name;
-  //console.log('server delete req.params: ', req.params);
   Team.remove({name: teamName}, function(err) {
     if (err) {
       console.error(err);

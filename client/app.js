@@ -7,6 +7,29 @@ angular.module('tournament', ['ngRoute'])
       $scope.teams = teams;
     });
 
+    // get all teams data
+    // compare each pairs scores
+      // call removeTeam on the team that lost
+    // call getAllTeams and then pairTeams
+    // bracket should re-render with new data
+    $scope.nextRound = function() {
+      Teams.getAllTeams().then(function(teams) {
+        for(var i = 0; i < teams.length; i += 2) {
+          if (teams[i + 1] !== undefined && teams[i].score > teams[i + 1].score) {
+            Teams.removeTeam(teams[i + 1].name);
+          } else if (teams[i + 1] === undefined) {
+            continue;
+          } else {
+            Teams.removeTeam(teams[i].name);
+          }
+        }
+      }).then(function() {
+        Teams.getAllTeams().then(function(teams) {
+          $scope.pairTeams(teams);
+        });
+      });
+    };
+
     $scope.pairTeams = function(teams) {
       $scope.pairs = [];
       for(var i = 0; i < teams.length; i += 2) {

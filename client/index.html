@@ -33,9 +33,11 @@
     <div class="bracket">
 
       <h2>Bracket</h2>
-      <button class="generate-button" ng-click="pairTeams(teams)">Generate</button>
-      <br>
-      <button class="next-round-button" ng-click="nextRound()">Next Round</button>
+
+      <div class="bracket-buttons">
+        <button class="generate-button" ng-click="pairTeams(teams)">Generate</button>
+        <button class="next-round-button" ng-click="nextRound()">Next Round</button>
+      </div>
 
       <div ng-repeat="pair in pairs">
         <br>

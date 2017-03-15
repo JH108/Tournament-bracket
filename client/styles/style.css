@@ -43,6 +43,12 @@ h2 {
   width: 250px;
   height: 100px;
 }
+.bracket-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 150px;
+}
 .score-top {
   width: 50px;
   margin-bottom: 5px;
